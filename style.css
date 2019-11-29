@@ -9,15 +9,12 @@
     padding: 0px;
   }
 
-
-
   .wrapper {
     /* background-color: lightpink; */
-    
-    max-width: 50%;
+    /* max-width: 50%; */
     display: flex;
     flex-direction: row;
-    height:50%;
+    /* height:50%; */
   }
   
   .left, .right, .under {
@@ -42,6 +39,7 @@
   }
   .profile-picture {
     border-radius: 50%;
+    
   }
 
   html, body {

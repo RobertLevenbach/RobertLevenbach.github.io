@@ -1,16 +1,40 @@
 
-var viewWidth = 500;
-var viewHeight = 500;
+var viewWidth = window.innerWidth;
+var viewHeight = window.innerHeight;
 
-var margin = {top: 20, right: 20, bottom: 30, left: 40};
+var marg=10
+var margin = {top: marg, right: marg, bottom: marg, left: marg};
 var width = viewWidth - margin.left - margin.right;
 var height = viewHeight - margin.top - margin.bottom;
 
-
-function pageElements(){
-
+var ratiopf=0
 
 
+function resizePF(width, height){
+
+  var wrapper= document.getElementsByClassName("wrapper");
+  wrapper.width=width
+  wrapper.height=height
+
+
+  var pf= document.getElementById("profile-picture");
+  console.log(width)
+  maxWidthPF= 100
+  maxHeightPF= 100
+
+    
+
+  if(width>maxWidthPF){
+    ratiopf = maxWidthPF / width; // get ratio for scaling image
+    pf.width = width * ratiopf;    // Reset width to match scaled image
+    pf.height = height * ratiopf;    // Reset height to match scaled image
+  }
+  if(height > maxHeightPF){
+    ratiopf = maxHeightPF / height; // get ratio for scaling image
+    pf.width = width * ratiopf;    // Reset width to match scaled image
+    pf.height = height * ratiopf;    // Reset height to match scaled image
+  }
+    
 }
 
 function resize() {
@@ -24,5 +48,8 @@ function resize() {
 
     
   
-    pageElements();
+    resizePF(width, height);
   }
+
+  resize()
+  d3.select(window).on("resize", resize);
