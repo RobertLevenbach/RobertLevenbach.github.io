@@ -11,36 +11,51 @@ var ratiopf=0
 
 
 function resizePF(width, height){
+  var body= document.getElementsByClassName("body")
+  body.height=window.innerHeight
 
   var wrapper= document.getElementsByClassName("wrapper");
-  wrapper.width=width
+  wrapper.width=window.innerHeight
   wrapper.height=height
+
+  var under= document.getElementsByClassName("under");
+  under.width=window.innerHeight
+  under.height=height
+
+  console.log(wrapper)
 
 
   var pf= document.getElementById("profile-picture");
-  console.log(width)
   maxWidthPF= 100
   maxHeightPF= 100
 
-    
+  pf.height=maxHeightPF
+  pf.width=maxWidthPF
 
-  if(width>maxWidthPF){
-    ratiopf = maxWidthPF / width; // get ratio for scaling image
-    pf.width = width * ratiopf;    // Reset width to match scaled image
-    pf.height = height * ratiopf;    // Reset height to match scaled image
+  if(wrapper.height/10<maxHeightPF){
+    pf.width=height/4
+    pf.height=height/4
   }
-  if(height > maxHeightPF){
-    ratiopf = maxHeightPF / height; // get ratio for scaling image
-    pf.width = width * ratiopf;    // Reset width to match scaled image
-    pf.height = height * ratiopf;    // Reset height to match scaled image
+  if(wrapper.width/10<maxWidthPF){
+    pf.width=width/4
+    pf.height=width/4
   }
+
+  
+  var cv= document.getElementById("cv");
+
+  cv.width=window.innerWidth;
+  cv.style.height=window.innerHeight-height/3;
+  cv.style.top= height/3  + 'px';
+  
+  console.log(cv)
     
 }
 
 function resize() {
 
     viewWidth = window.innerWidth;
-    viewHeight = window.innerHeight-50;
+    viewHeight = window.innerHeight;
   
     width = viewWidth - margin.left - margin.right;
     height = viewHeight - margin.top - margin.bottom;

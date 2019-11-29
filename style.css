@@ -15,9 +15,13 @@
     display: flex;
     flex-direction: row;
     /* height:50%; */
+    position: absolute;
+    top: 0px;
+    left:0px;
+    
   }
   
-  .left, .right, .under {
+  .left, .right {
     /* background-color: lightblue; */
     margin: 5px;
     max-width: 50%;
@@ -27,16 +31,28 @@
     justify-content: center;
   }
 
+  #cv{
+    /* background-color: lightpink; */
+    /* max-width: 50%; */
+    display: flex;
+    flex-direction: row;
+    /* height:50%; */
+    position: absolute;
+    left:0px;
+    top: 0;
+    
+
+  }
+
   .left {
     align-items: center;
     justify-content: center;
   }
   
-  .under{
-      align-items: center;
-      justify-content: center;
 
-  }
+  
+  
+  
   .profile-picture {
     border-radius: 50%;
     
